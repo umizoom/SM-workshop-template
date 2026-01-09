@@ -57,6 +57,24 @@ Steps:
 
     c. Merge the PR. This triggers a build.
 
+4. Create a cluster
+
+    Run a command to create a new Kubernetes cluster. For example, we're using kind to create a cluster called sm-workshop-cluster.
+
+    ```shell
+    kind create cluster --name sm-workshop-cluster
+    ```
+
+    If you have already have a cluster, you can skip this step, but take note of your cluster name so you can use it in future steps.
+
+5. Run the bootstrap script
+
+    a. Open up the cloned repository in your code editor.
+
+    b. Run the ./bootstrap.sh script.
+
+    c. It will prompt you to press enter several times, to ensure there are no errors at each stage.
+
 
 
 
