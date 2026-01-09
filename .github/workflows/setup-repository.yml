@@ -39,10 +39,6 @@ jobs:
           # Update test-app/deployment.yaml
           yq eval '(select(.kind == "Deployment") | .spec.template.spec.containers[] | select(.name == "test-app") | .image) = "${{ env.CONTAINER_IMAGE }}"' -i test-app/deployment.yaml
           echo "✓ Updated test-app/deployment.yaml"
-          
-          # Update test-app/test-app.yaml
-          yq eval '.spec.schema.ociImage.reference = "${{ env.CONTAINER_IMAGE }}"' -i test-app/test-app.yaml
-          echo "✓ Updated test-app/test-app.yaml"
 
       - name: Verify changes
         run: |
@@ -54,7 +50,6 @@ jobs:
           echo ""
           echo "=== Container Image ==="
           echo "test-app/deployment.yaml: $(yq eval 'select(.kind == "Deployment") | .spec.template.spec.containers[] | select(.name == "test-app") | .image' test-app/deployment.yaml)"
-          echo "test-app/test-app.yaml: $(yq eval '.spec.schema.ociImage.reference' test-app/test-app.yaml)"
           echo ""
           echo "Setup completed successfully! 🎉"
 
@@ -78,7 +73,6 @@ jobs:
             - `bootstrap.yaml` - Updated repository URL
             - `apps/test-app.yaml` - Updated repository URL
             - `test-app/deployment.yaml` - Updated container image reference
-            - `test-app/test-app.yaml` - Updated container image reference
 
             ### Next Steps:
             1. Review the changes in this pull request
