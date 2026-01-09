@@ -12,8 +12,9 @@ Below are some of the commands we're using in the workshop to allow for ease of 
 You will need:
 
 1. A personal GitHub account
-2. Install Docker or an equivalent tool to run containers
-3. Install kind to run local Kubernetes clusters using Docker container "nodes"
+2. Install Docker or an equivalent tool to run containers. Example Docker Desktop or for mac users [colima](https://github.com/abiosoft/colima).
+3. Install [kind](https://kind.sigs.k8s.io/) to run local Kubernetes clusters using Docker container "nodes"
+4. Install `kubectl`. Instructions [here](https://kubernetes.io/docs/tasks/tools/#kubectl)
 
 
 Steps: 
