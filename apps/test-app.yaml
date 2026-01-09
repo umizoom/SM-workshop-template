@@ -9,7 +9,7 @@ spec:
     path: test-app
     repoURL: https://github.com/example/repo
     directory:
-      include: "*.yaml"
+      include: "test-app/deployment.yaml"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
