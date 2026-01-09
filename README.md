@@ -44,7 +44,7 @@ Steps:
 
     b. Select the Setup Repository workflow.
 
-    c. Click Run workflow, then enter the Graph ID you chose in Studio, followed by @current.
+    c. Click Run workflow.
 
     d. Click Run workflow. After the workflow finishes, you should see a PR in the repository.
     ![alt text](media/image.png)
