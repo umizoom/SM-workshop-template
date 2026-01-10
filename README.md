@@ -14,7 +14,10 @@ You will need:
 3. Install [kind](https://kind.sigs.k8s.io/) to run local Kubernetes clusters using Docker container "nodes"
 4. Install `kubectl`. Instructions [here](https://kubernetes.io/docs/tasks/tools/#kubectl)
 
+## Video demo
 
+[Link to Video
+](https://drive.google.com/file/d/1u1DvmXSxyOu3A9XH7Ha3Q-cbpSL8hm4M/view?usp=sharing)
 ## Work Shop Steps: 
 
 1. Configure GitHub repository
