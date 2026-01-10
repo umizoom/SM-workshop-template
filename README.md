@@ -5,8 +5,6 @@ This is a workshop that will be running as part of the 2026 OttawaU hack event.
 Press the "**Use this template**" button to make a copy of this template into your personal
 GitHub account!
 
-Below are some of the commands we're using in the workshop to allow for ease of copying!
-
 ## Pre-requisites
 
 You will need:
@@ -17,7 +15,7 @@ You will need:
 4. Install `kubectl`. Instructions [here](https://kubernetes.io/docs/tasks/tools/#kubectl)
 
 
-Steps: 
+## Work Shop Steps: 
 
 1. Configure GitHub repository
 
@@ -43,12 +41,9 @@ Steps:
 
     a. In GitHub, navigate to the Actions tab.
 
-    b. Select the Setup Repository workflow.
+    b. Select the `Setup Repository` workflow.
 
-    c. Click Run workflow.
-
-    d. Click Run workflow. After the workflow finishes, you should see a PR in the repository.
-    ![alt text](media/image.png)
+    c. Click Run workflow. After the workflow finishes, you should see a PR in the repository.
 
 3. Merge PR
 
@@ -56,7 +51,7 @@ Steps:
 
     b. Check the open PR.
 
-    c. Merge the PR. This triggers a build.
+    c. Merge the PR. This triggers a build of the test-app application.
 
 4. Create a cluster
 
@@ -72,12 +67,31 @@ Steps:
 
     a. Open up the cloned repository in your code editor.
 
-    b. Run the ./bootstrap.sh script.
+    b. Run the `./bootstrap.sh` script.
 
     c. It will prompt you to press enter several times, to ensure there are no errors at each stage.
 
+6. Check Pods Are Running
 
+   `kubectl get pods -A`
 
+7. Get Argocd password
+
+   `kubectl -n argocd get secrets/argocd-initial-admin-secret --template='{{.data.password}}' | base64 -d`
+
+8. Access ArgoCD
+   
+   `kubectl -n argocd port-forward service/argocd-server 8080:80`
+
+9. Go to your browser and navigate to `localhost:8080`
+
+10. Login to argocd with the password from Step 7
+
+11. Find your `test-app` and click refresh
+
+12. The test app should start up
+
+13. Bonus try to port forward the test app
 
 
 ## Useful Commands
@@ -85,7 +99,7 @@ Steps:
 ### Creating a Cluster
 
 ```shell
-kind create cluster --name workshop-cluster
+kind create cluster --name sm-workshop-cluster
 ```
 ### Run the Bootstrap Script
 
@@ -113,3 +127,8 @@ kubectl -n argocd get secrets/argocd-initial-admin-secret --template='{{.data.pa
 kubectl -n argocd port-forward service/argocd-server 8080:80
 ```
 
+### Access Test App
+
+```shell
+kubectl -n default port-forward service/test-app 8081:80
+```
