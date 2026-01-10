@@ -91,7 +91,7 @@ You will need:
 
 12. The test app should start up
 
-13. Bonus try to port forward the test app
+13. Bonus points: Try to port forward the test app using kubectl
 
 
 ## Useful Commands
